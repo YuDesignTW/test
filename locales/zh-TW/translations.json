@@ -1,0 +1,94 @@
+{
+  "common": {
+    "back": "返回",
+    "prepare": "去準備",
+    "completed": "已完成",
+    "progress": "準備進度",
+    "people": "人",
+    "days": "天",
+    "quantity": "數量",
+    "beta": "測試版"
+  },
+  "categories": {
+    "food": "糧食",
+    "tools": "工具類",
+    "info": "電子通訊",
+    "medical": "醫療衛生",
+    "living": "生活用品"
+  },
+  "food": {
+    "title": "糧食",
+    "description": "食物準備的三大原則：不需烹煮、營養價值高熱量夠支撐體力、可存放時間長。",
+    "items": {
+      "water": {
+        "name": "水",
+        "description": "每人每天3公升水，適當補充身體水分",
+        "note": "災難時每人每天需要2-3公升飲用水，夏季或高溫環境可能需要更多"
+      },
+      "instant_food": {
+        "name": "即食飯、餅乾、泡麵",
+        "description": "主食提供碳水化合物能量來源",
+        "note": "選擇不需烹煮或簡易加熱的主食，提供基礎熱量"
+      },
+      "protein_can": {
+        "name": "蛋白質罐頭(鮪魚/雞肉)",
+        "description": "補充蛋白質，維持肌肉",
+        "note": "罐頭保存期長，每日至少一份蛋白質食物維持體力"
+      },
+      "high_calorie": {
+        "name": "高熱量(能量棒/巧克力)",
+        "description": "高熱量食物補充脂肪與快速能量",
+        "note": "能量密度高，提供快速能量及心理滿足感"
+      },
+      "electrolyte": {
+        "name": "電解質粉",
+        "description": "補充電解質維持體液平衡與精神",
+        "note": "避免脫水及維持電解質平衡，特別是腹瀉或大量出汗狀況"
+      }
+    }
+  },
+  "medical": {
+    "title": "醫療衛生",
+    "description": "醫療衛生用品準備原則：基礎急救、個人衛生、慢性病藥物。",
+    "items": {
+      "first_aid": {
+        "name": "急救包",
+        "description": "基礎創傷處理與急救用品",
+        "note": "包含紗布、繃帶、消毒水等基礎急救物品"
+      }
+    }
+  },
+  "living": {
+    "title": "生活用品",
+    "description": "生活用品準備原則：個人衛生、保暖、照明。",
+    "items": {
+      "toilet_paper": {
+        "name": "衛生紙",
+        "description": "個人衛生必需品",
+        "note": "選擇不易破損的優質衛生紙"
+      }
+    }
+  },
+  "info": {
+    "title": "電子通訊",
+    "description": "電子通訊設備準備原則：多種備用電源、多種通訊方式。",
+    "items": {
+      "battery": {
+        "name": "電池",
+        "description": "各種尺寸的備用電池",
+        "note": "準備多種型號以應對不同設備需求"
+      }
+    }
+  },
+  "tools": {
+    "title": "工具類",
+    "description": "工具類準備原則：多功能、耐用、易於使用。",
+    "items": {
+      "flashlight": {
+        "name": "手電筒",
+        "description": "緊急照明設備",
+        "note": "選擇LED手電筒，亮度高且省電"
+      }
+    }
+  }
+} 

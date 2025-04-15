@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "臺北市立大安運動中心",
+                "type": "shelter",
+                "capacity": 500
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [121.5437, 25.0208]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "臺北市和平國民中學",
+                "type": "shelter",
+                "capacity": 800
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [121.5534, 25.0261]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "臺北市立圖書館總館",
+                "type": "shelter",
+                "capacity": 300
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [121.5372, 25.0239]
+            }
+        }
+    ]
+} 

@@ -1,0 +1,94 @@
+{
+  "common": {
+    "back": "Back",
+    "prepare": "Prepare",
+    "completed": "Completed",
+    "progress": "Progress",
+    "people": "people",
+    "days": "days",
+    "quantity": "Quantity",
+    "beta": "Beta"
+  },
+  "categories": {
+    "food": "Food",
+    "tools": "Tools",
+    "info": "Electronics",
+    "medical": "Medical",
+    "living": "Living"
+  },
+  "food": {
+    "title": "Food",
+    "description": "Three principles for food preparation: no cooking required, high nutritional value with sufficient calories to support physical strength, and long shelf life.",
+    "items": {
+      "water": {
+        "name": "Water",
+        "description": "3 liters of water per person per day to properly hydrate the body",
+        "note": "During disasters, each person needs 2-3 liters of drinking water per day, more may be needed in summer or high-temperature environments"
+      },
+      "instant_food": {
+        "name": "Instant Rice, Cookies, Instant Noodles",
+        "description": "Staple food providing carbohydrate energy source",
+        "note": "Choose foods that don't require cooking or only need simple heating, providing basic calories"
+      },
+      "protein_can": {
+        "name": "Protein Cans (Tuna/Chicken)",
+        "description": "Supplement protein, maintain muscle",
+        "note": "Cans have long shelf life, at least one serving of protein food per day to maintain strength"
+      },
+      "high_calorie": {
+        "name": "High Calorie (Energy Bars/Chocolate)",
+        "description": "High-calorie food supplementing fat and quick energy",
+        "note": "High energy density, providing quick energy and psychological satisfaction"
+      },
+      "electrolyte": {
+        "name": "Electrolyte Powder",
+        "description": "Supplement electrolytes to maintain fluid balance and mental alertness",
+        "note": "Prevent dehydration and maintain electrolyte balance, especially during diarrhea or excessive sweating"
+      }
+    }
+  },
+  "medical": {
+    "title": "Medical & Hygiene",
+    "description": "Medical and hygiene supplies preparation principles: basic first aid, personal hygiene, chronic disease medications.",
+    "items": {
+      "first_aid": {
+        "name": "First Aid Kit",
+        "description": "Basic wound treatment and first aid supplies",
+        "note": "Includes gauze, bandages, disinfectant and other basic first aid items"
+      }
+    }
+  },
+  "living": {
+    "title": "Living Supplies",
+    "description": "Living supplies preparation principles: personal hygiene, warmth, lighting.",
+    "items": {
+      "toilet_paper": {
+        "name": "Toilet Paper",
+        "description": "Essential personal hygiene item",
+        "note": "Choose high-quality toilet paper that doesn't tear easily"
+      }
+    }
+  },
+  "info": {
+    "title": "Electronics & Communication",
+    "description": "Electronics and communication equipment preparation principles: multiple backup power sources, multiple communication methods.",
+    "items": {
+      "battery": {
+        "name": "Batteries",
+        "description": "Backup batteries of various sizes",
+        "note": "Prepare multiple types to meet different device requirements"
+      }
+    }
+  },
+  "tools": {
+    "title": "Tools",
+    "description": "Tools preparation principles: multifunctional, durable, easy to use.",
+    "items": {
+      "flashlight": {
+        "name": "Flashlight",
+        "description": "Emergency lighting equipment",
+        "note": "Choose LED flashlight, high brightness and energy efficient"
+      }
+    }
+  }
+} 

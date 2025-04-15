@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防災避難準備清冊</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="frame">
+        <!-- 左侧区块 - 糧食 -->
+        <div class="left-section">
+            <div class="food-block" data-category="01" data-title="糧食">
+                <div class="text-content">
+                    <div class="number">01</div>
+                    <div class="category">FOOD</div>
+                    <div class="title">糧食</div>
+                </div>
+                <div class="icon-group">
+                    <img src="images/01.png" alt="水" class="icon">
+                </div>
+            </div>
+        </div>
+
+        <!-- 中上区块 - 工具類 -->
+        <div class="center-top">
+            <div class="tools-block" data-category="05" data-title="工具類">
+                <div class="text-content">
+                    <div class="number">05</div>
+                    <div class="category">INFORMATION</div>
+                    <div class="title">工具</div>
+                </div>
+                <div class="icon-group">
+                    <img src="images/05.png" alt="瓦斯" class="icon">
+                </div>
+            </div>
+        </div>
+
+        <!-- 右上区块 - 電子通訊 -->
+        <div class="right-section">
+            <div class="info-block" data-category="04" data-title="電子通訊">
+                <div class="text-content">
+                    <div class="number">04</div>
+                    <div class="category">INFORMATION</div>
+                    <div class="title">電子通訊</div>
+                </div>
+                <div class="icon-group">
+                    <img src="images/04.png" alt="電池" class="icon">
+                </div>
+            </div>
+        </div>
+
+        <!-- 中央内容区 -->
+        <div class="center-content">
+            <div class="sip-title">SIP (Shelter-In-Place)</div>
+            <h1>居家避難包</h1>
+            <p class="description">目標是在家中自給自足維持基本安全與生存，通常以7~14天長期為主</p>
+            <div class="center-bottom">
+                <div class="beta-tag">
+                    <a href="evacuation-map/evacuate.html" class="beta-link">逃難路徑規劃 (BETA) -></a>
+                </div>
+            </div>
+            <div class="total-progress-container">
+                <div class="total-progress-circle">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle class="total-progress-circle-bg" cx="60" cy="60" r="54" fill="none" stroke-width="12"></circle>
+                        <circle class="total-progress-circle-fill" cx="60" cy="60" r="54" fill="none" stroke-width="12" stroke-dasharray="339.2" stroke-dashoffset="339.2"></circle>
+                    </svg>
+                    <div class="total-progress-percentage">0%</div>
+                </div>
+                <div class="total-progress-text">總進度</div>
+            </div>
+        </div>
+
+        <!-- 底部区块 -->
+        <div class="bottom-section">
+            <!-- 左下 - 醫療衛生 -->
+            <div class="medical-block" data-category="02" data-title="醫療衛生">
+                <div class="text-content">
+                    <div class="number">02</div>
+                    <div class="category">MEDICAL</div>
+                    <div class="title">醫療衛生</div>
+                </div>
+                <div class="icon-group">
+                    <img src="images/02.png" alt="紙巾" class="icon">
+                </div>
+            </div>
+            <!-- 右下 - 生活用品 -->
+            <div class="living-block" data-category="03" data-title="生活用品">
+                <div class="text-content">
+                    <div class="number">03</div>
+                    <div class="category">LIVING</div>
+                    <div class="title">生活用品</div>
+                </div>
+                <div class="icon-group">
+                    <img src="images/03.png" alt="毛巾" class="icon">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情页面 - 糧食 -->
+    <div id="detail-01" class="detail-page">
+        <div class="detail-left">
+            <div class="detail-header">
+                <div class="detail-number">01</div>
+                <div class="detail-category">FOOD</div>
+                <div class="detail-title">糧食</div>
+            </div>
+            <div class="detail-description">
+                <p>食物準備的三大原則：不需烹煮、營養價值高熱量夠支撐體力、可存放時間長。</p>
+                <p>災難發生時可能無電、無瓦斯、無時間煮食，選擇即食/冷食可用為主。食物需適量蛋白質、碳水、脂肪、維生素，須備高密度熱量食物才能維持身體與情緒穩定。</p>
+                <p>範例食物品項：罐頭、即食麵類、自熱飯、能量棒、堅果、運動飲料粉</p>
+            </div>
+            <div class="settings-area">
+                <button class="settings-button people-setting">
+                    <span>人數</span>
+                    <span>1人</span>
+                </button>
+                <button class="settings-button days-setting">
+                    <span>天數</span>
+                    <span>14天</span>
+                </button>
+            </div>
+        </div>
+        <div class="detail-right">
+            <div class="progress-bar">
+                <span class="progress-text">準備進度</span>
+                <span class="progress-count">0 / 6</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <button class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12H19"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            <div class="checklist">
+                <div class="checklist-header">
+                    <span class="col-checkbox"></span>
+                    <span class="col-item">項目</span>
+                    <span class="col-per-person">每人所需</span>
+                    <span class="col-people">人數</span>
+                    <span class="col-days">天數</span>
+                    <span class="col-total">總計</span>
+                </div>
+                <div class="checklist-divider"></div>
+                <!-- 食物項目清單將由JavaScript動態生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情页面 - 醫療衛生 -->
+    <div id="detail-02" class="detail-page">
+        <div class="detail-left">
+            <div class="detail-header">
+                <div class="detail-number">02</div>
+                <div class="detail-category">MEDICAL</div>
+                <div class="detail-title">醫療衛生</div>
+            </div>
+            <div class="detail-description">
+                <p>以自救與互救核心：災難發生後可能無法立即就醫。</p>
+                <li>基本急救用品 : 對應外傷、跌倒、出血等狀況，具備初步處理能力</li>
+                <li>常見病症 : 例如割傷、燒燙傷、腹瀉、感冒</li>
+                <li>慢性病藥物 : 例如高血壓、糖尿病、氣喘等患者</li>
+                <p>*記得定期檢查藥物有效期，避免藥物存放在潮濕或高溫環境。</p>
+            </div>
+            <div class="settings-area">
+                <button class="settings-button people-setting">
+                    <span>人數</span>
+                    <span>1人</span>
+                </button>
+                <button class="settings-button days-setting">
+                    <span>天數</span>
+                    <span>14天</span>
+                </button>
+            </div>
+        </div>
+        <div class="detail-right">
+            <div class="progress-bar">
+                <span class="progress-text">準備進度</span>
+                <span class="progress-count">0 / 6</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <button class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12H19"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            <div class="checklist">
+                <div class="checklist-header">
+                    <span class="col-checkbox"></span>
+                    <span class="col-item">項目</span>
+                    <span class="col-per-person">每人所需</span>
+                    <span class="col-people">人數</span>
+                    <span class="col-days">天數</span>
+                    <span class="col-total">總計</span>
+                </div>
+                <div class="checklist-divider"></div>
+                <!-- 醫療衛生項目清單將由JavaScript動態生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情页面 - 生活用品 -->
+    <div id="detail-03" class="detail-page">
+        <div class="detail-left">
+            <div class="detail-header">
+                <div class="detail-number">03</div>
+                <div class="detail-category">LIVING</div>
+                <div class="detail-title">生活用品</div>
+            </div>
+            <div class="detail-description">
+                <p>日常用品類常常是最容易忽略、但最容易造成生活不便與心理壓力的部分。良好的準備能大幅提升避難時的清潔、舒適感，尤其在缺水、斷電的狀況下病菌更容易滋生。</p>
+                <p>選擇多功能、輕便且耐用的物品，以清潔、收納、生理替代品。</p>
+                <p>備註 : 可為每人準備「個人清潔包」、乾濕物品分袋／分類放置。</p>
+            </div>
+            <div class="settings-area">
+                <button class="settings-button people-setting">
+                    <span>人數</span>
+                    <span>1人</span>
+                </button>
+                <button class="settings-button days-setting">
+                    <span>天數</span>
+                    <span>14天</span>
+                </button>
+            </div>
+        </div>
+        <div class="detail-right">
+            <div class="progress-bar">
+                <span class="progress-text">準備進度</span>
+                <span class="progress-count">0 / 6</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <button class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12H19"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            <div class="checklist">
+                <div class="checklist-header">
+                    <span class="col-checkbox"></span>
+                    <span class="col-item">項目</span>
+                    <span class="col-per-person">每人所需</span>
+                    <span class="col-people">人數</span>
+                    <span class="col-days">天數</span>
+                    <span class="col-total">總計</span>
+                </div>
+                <div class="checklist-divider"></div>
+                <!-- 生活用品項目清單將由JavaScript動態生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情页面 - 電子通訊 -->
+    <div id="detail-04" class="detail-page">
+        <div class="detail-left">
+            <div class="detail-header">
+                <div class="detail-number">04</div>
+                <div class="detail-category">INFORMATION</div>
+                <div class="detail-title">電子通訊</div>
+            </div>
+            <div class="detail-description">
+                <p>保持資訊連結與基本通訊能力，獲取外界資訊與求救。</p>
+                <p>災時掌握正確資訊和保持通訊能力至關重要。確保設備具備多種供電方式，減少對單一電源的依賴。</p>
+                <p>設置省電模式，僅在必要時使用電子設備，延長電力供應時間。</p>
+            </div>
+            <div class="settings-area">
+                <button class="settings-button people-setting">
+                    <span>人數</span>
+                    <span>1人</span>
+                </button>
+                <button class="settings-button days-setting">
+                    <span>天數</span>
+                    <span>14天</span>
+                </button>
+            </div>
+        </div>
+        <div class="detail-right">
+            <div class="progress-bar">
+                <span class="progress-text">準備進度</span>
+                <span class="progress-count">0 / 6</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <button class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12H19"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            <div class="checklist">
+                <div class="checklist-header">
+                    <span class="col-checkbox"></span>
+                    <span class="col-item">項目</span>
+                    <span class="col-per-person">每人所需</span>
+                    <span class="col-people">人數</span>
+                    <span class="col-days">天數</span>
+                    <span class="col-total">總計</span>
+                </div>
+                <div class="checklist-divider"></div>
+                <!-- 電子通訊項目清單將由JavaScript動態生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情页面 - 工具類 -->
+    <div id="detail-05" class="detail-page">
+        <div class="detail-left">
+            <div class="detail-header">
+                <div class="detail-number">05</div>
+                <div class="detail-category">TOOLS</div>
+                <div class="detail-title">工具類</div>
+            </div>
+            <div class="detail-description">
+                <p>災難發生後，基本工具可能成為救命物資，並協助適應惡劣環境。</p>
+                <p>優先考慮多功能、耐用性與便攜性，可從修理、切割、加熱、指引、照明、安全防護等6種方向切入</p>
+                <p>工具預先存放在方便取用的位置，確保所有家庭成員了解其位置與基本使用方法。</p>
+                <p>備註 : 可為每人準備「個人工具包」、工具分袋／分類放置。</p>
+            </div>
+            <div class="settings-area">
+                <button class="settings-button people-setting">
+                    <span>人數</span>
+                    <span>1人</span>
+                </button>
+                <button class="settings-button days-setting">
+                    <span>天數</span>
+                    <span>14天</span>
+                </button>
+            </div>
+        </div>
+        <div class="detail-right">
+            <div class="progress-bar">
+                <span class="progress-text">準備進度</span>
+                <span class="progress-count">0 / 6</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-track">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <button class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12H19"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            <div class="checklist">
+                <div class="checklist-header">
+                    <span class="col-checkbox"></span>
+                    <span class="col-item">項目</span>
+                    <span class="col-per-person">每人所需</span>
+                    <span class="col-people">人數</span>
+                    <span class="col-days">天數</span>
+                    <span class="col-total">總計</span>
+                </div>
+                <div class="checklist-divider"></div>
+                <!-- 工具類項目清單將由JavaScript動態生成 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="food-data.js"></script>
+    <script src="medical-data.js"></script>
+    <script src="living-data.js"></script>
+    <script src="info-data.js"></script>
+    <script src="tools-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

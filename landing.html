@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防災避難準備清冊</title>
+    <link rel="stylesheet" href="landing-styles.css">
+</head>
+<body>
+    <div class="landing-container">
+        <!-- 頂部跑馬燈 -->
+        <div class="marquee marquee-top">
+            <div class="marquee-content">
+                <img src="images/landing01.png" alt="緊急物資" class="marquee-item">
+                <img src="images/landing01.png" alt="緊急物資" class="marquee-item">
+                <img src="images/landing01.png" alt="緊急物資" class="marquee-item">
+
+            </div>
+        </div>
+        
+        <!-- 內容區域 -->
+        <div class="content-area">
+            <h1 class="main-title">防災避難準備清冊</h1>
+            
+            <div class="buttons-container">
+                <!-- 已啟用的按鈕 - 左上 -->
+                <a href="index.html" class="option-button active">
+                    <div class="button-content">
+                        <span class="button-title">居家避難 SIP</span>
+                        <span class="button-subtitle">Shelter-in-Place</span>
+                    </div>
+                </a>
+                
+                <!-- 未啟用的按鈕 - 右上 -->
+                <div class="option-button disabled">
+                    <div class="button-content">
+                        <span class="button-title">日常隨身 EDC</span>
+                        <span class="button-subtitle">Everyday Carry</span>
+                    </div>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                
+                <!-- 未啟用的按鈕 - 左下 -->
+                <div class="option-button disabled">
+                    <div class="button-content">
+                        <span class="button-title">安全返家 GHB</span>
+                        <span class="button-subtitle">Get Home Bag</span>
+                    </div>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+                
+                <!-- 未啟用的按鈕 - 右下 -->
+                <div class="option-button disabled">
+                    <div class="button-content">
+                        <span class="button-title">緊急撤離 BOB</span>
+                        <span class="button-subtitle">Bug Out Bag</span>
+                    </div>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部跑馬燈 -->
+        <div class="marquee marquee-bottom">
+            <div class="marquee-content reverse">
+                <img src="images/landing01.png" alt="緊急物資" class="marquee-item">
+                <img src="images/landing01.png" alt="緊急物資" class="marquee-item">
+                <img src="images/landing01.png" alt="緊急物資" class="marquee-item">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 確保跑馬燈圖片加載完成後設置正確的初始位置
+        window.addEventListener('load', () => {
+            const marqueeContents = document.querySelectorAll('.marquee-content');
+            marqueeContents.forEach(content => {
+                // 計算內容的總寬度
+                let totalWidth = 0;
+                const items = content.querySelectorAll('.marquee-item');
+                items.forEach(item => {
+                    totalWidth += item.offsetWidth + parseInt(window.getComputedStyle(item).marginLeft) + parseInt(window.getComputedStyle(item).marginRight);
+                });
+                
+                // 設置內容寬度
+                content.style.width = `${totalWidth / 2}px`;
+            });
+        });
+    </script>
+</body>
+</html> 

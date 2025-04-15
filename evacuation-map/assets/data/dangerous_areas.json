@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "松山機場",
+                "type": "airport",
+                "buffer": 3000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [121.5525, 25.0631]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "三軍總醫院",
+                "type": "hospital",
+                "buffer": 2000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [121.5579, 25.0136]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "美國在台協會",
+                "type": "institution",
+                "buffer": 2000
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [121.5455, 25.0242]
+            }
+        }
+    ]
+} 

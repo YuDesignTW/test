@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PingFang TC', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: #FFFEFE;
+    color: #333;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #FFFEFE;
+    color: #333;
+}
+
+/* 跑馬燈樣式 */
+.marquee {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    background-color: transparent;
+}
+
+.marquee-top {
+    margin-bottom: auto;
+}
+
+.marquee-bottom {
+    margin-top: auto;
+    border-bottom: none;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    animation: marquee 85s linear infinite;
+    background-color: transparent;
+    height: 100%;
+}
+
+.marquee-content.reverse {
+    animation-direction: reverse;
+    animation-duration: 85s;
+}
+
+.marquee-item {
+    height: 100px;
+    margin: 0 15px;
+    border-radius: 0;
+    filter: none;
+    object-fit: contain;
+    z-index: 2;
+    position: relative;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* 內容區域 */
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #3C81E0;
+    letter-spacing: 1px;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.option-button {
+    position: relative;
+    background-color: #f5f5f4;
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: left;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #e0e0e0;
+    overflow: hidden;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.option-button.active {
+    background-color: #f8f8f6;
+    border-right: 4px solid #3C81E0;
+    border-bottom: 4px solid #3C81E0;
+    border-left: 2px solid #e0e0e0;
+    border-top: 2px solid #e0e0e0;
+}
+
+.option-button:not(.disabled):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(60, 129, 224, 0.15);
+    border-color: #3C81E0;
+}
+
+.option-button.active:hover {
+    background-color: #3C81E0;
+    color: white;
+}
+
+.option-button.active:hover .button-title {
+    color: white;
+}
+
+.option-button.active:hover .button-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.option-button.disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+}
+
+.button-content {
+    position: relative;
+    z-index: 1;
+}
+
+.button-title {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #3C81E0;
+}
+
+.button-subtitle {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.coming-soon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #3C81E0;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    transform: rotate(5deg);
+}
+
+/* 響應式樣式 */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .marquee {
+        height: 90px;
+    }
+    
+    .marquee-item {
+        height: 70px;
+    }
+    
+    .buttons-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        gap: 15px;
+    }
+    
+    .option-button {
+        height: auto;
+        padding: 20px 15px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .buttons-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
+} 

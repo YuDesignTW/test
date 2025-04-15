@@ -1,0 +1,1245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.frame {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    max-width: 1920px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 区块布局 */
+.left-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30%;
+    height: 60%;
+    border-right: 4px solid #3C81E0;
+    border-bottom: 4px solid #3C81E0;
+    background-color: #F5F5F4;
+}
+
+.center-top {
+    position: absolute;
+    left: 30%;
+    top: 0;
+    width: 40%;
+    height: 30%;
+    border-right: 4px solid #3C81E0;
+    border-bottom: 4px solid #3C81E0;
+    background-color: #FAF8F5;
+}
+
+.right-section {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 60%;
+    border-bottom: 4px solid #3C81E0;
+    background-color: #FAF8F5;
+}
+
+.bottom-section {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    display: flex;
+}
+
+/* 区块内容 */
+.food-block,
+.tools-block,
+.info-block,
+.medical-block,
+.living-block {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: background-color 0.3s ease;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* 左上区块和右上区块的特别样式(01和04) */
+.food-block, .info-block {
+    flex-direction: column;
+}
+
+/* 中上区块和底部区块的特别样式(02,03,05) */
+.tools-block, .medical-block, .living-block {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+}
+
+/* 为所有区块添加相对定位，以便放置hover叠加层 */
+.food-block, .tools-block, .info-block, .medical-block, .living-block {
+    position: relative;
+}
+
+/* 添加hover叠加层 */
+.food-block::after,
+.tools-block::after,
+.info-block::after,
+.medical-block::after,
+.living-block::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(60, 129, 224, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.food-block:hover::after,
+.tools-block:hover::after,
+.info-block:hover::after,
+.medical-block:hover::after,
+.living-block:hover::after {
+    opacity: 1;
+}
+
+.medical-block {
+    width: 50%;
+    background-color: #F8F8F6;
+    border-right: 4px solid #3C81E0;
+}
+
+.living-block {
+    width: 50%;
+    background-color: #F9F9F6;
+}
+
+/* 文字内容 */
+.text-content {
+    position: relative;
+    z-index: 6; /* 高于hover叠加层 */
+    max-width: 100%;
+}
+
+/* 01和04区块的文字内容 */
+.food-block .text-content,
+.info-block .text-content {
+    max-width: 70%;
+    margin-bottom: 20px;
+}
+
+/* 02,03,05区块的文字内容 */
+.tools-block .text-content,
+.medical-block .text-content,
+.living-block .text-content {
+    max-width: 30%;
+}
+
+.number {
+    font-size: 111px;
+    line-height: 1;
+    color: #3C81E0;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.category {
+    font-size: 20px;
+    color: #3C81E0;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-size: 34px;
+    color: #3C81E0;
+    font-weight: bold;
+}
+
+/* 图标组 */
+.icon-group {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    z-index: 1; /* 低于hover叠加层 */
+}
+
+/* 01和04区块的图标组 */
+.food-block .icon-group,
+.info-block .icon-group {
+    align-self: flex-end;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+/* 02,03,05区块的图标组 */
+.tools-block .icon-group,
+.medical-block .icon-group,
+.living-block .icon-group {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.icon {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+/* 调整02,03,05区块的图标大小 */
+.tools-block .icon,
+.medical-block .icon,
+.living-block .icon {
+    width: 350px;
+    height: 350px;
+}
+
+/* 中央内容区 */
+.center-content {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    width: 40%;
+    height: 30%;
+    padding: 30px 40px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    border-right: 4px solid #3C81E0;
+    border-bottom: 4px solid #3C81E0;
+    overflow: hidden;
+}
+
+.sip-title {
+    font-size: 16px;
+    color: #3C81E0;
+    margin-bottom: 10px;
+}
+
+.center-content h1 {
+    font-size: 48px;
+    color: #3C81E0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.duration {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.duration p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+/* 分页指示器 */
+.pagination {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+}
+
+.dot.active {
+    background-color: #3C81E0;
+}
+
+/* 分页和按钮区域 */
+.center-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* Beta标签 */
+.beta-tag {
+    background-color: #F5F5F5;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.beta-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.beta-link:hover {
+    color: #3C81E0;
+}
+
+/* 悬停效果 - 移除原有的背景色变化 */
+.food-block:hover,
+.tools-block:hover,
+.info-block:hover,
+.medical-block:hover,
+.living-block:hover {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* 详情页面样式 */
+.detail-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.detail-page.active {
+    visibility: visible;
+    opacity: 1;
+    overflow-y: auto;
+}
+
+/* 详情页左侧 */
+.detail-left {
+    width: 30%;
+    height: 100%;
+    background-color: #F5F5F4;
+    padding: 40px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-header {
+    margin-bottom: 30px;
+}
+
+.detail-number {
+    font-size: 111px;
+    line-height: 1;
+    color: #3C81E0;
+    font-weight: bold;
+}
+
+.detail-category {
+    font-size: 20px;
+    color: #3C81E0;
+    margin-bottom: 5px;
+}
+
+.detail-title {
+    font-size: 34px;
+    color: #3C81E0;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detail-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* 人数和天数选择器 */
+.settings-area {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.settings-button {
+    width: 100%;
+    background-color: #3C81E0;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.settings-button:hover {
+    background-color: #2B6FC0;
+}
+
+/* 详情页右侧 */
+.detail-right {
+    width: 70%;
+    height: 100%;
+    background-color: #3C81E0;
+    color: #fff;
+    padding: 40px;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* 进度条样式 */
+.progress-container {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-text {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.progress-count {
+    font-size: 24px;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* 返回按钮 */
+.back-button {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.back-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.checklist {
+    margin-top: 60px;
+}
+
+.checklist-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.checklist-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.item-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.checklist-item {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* 移除底部間距，因為 container 已有間距 */
+    padding: 10px 15px;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.2s ease;
+}
+
+.checklist-item:hover,
+.checklist-item.selected,
+.checklist-item.expanded {
+    background-color: rgba(0, 0, 0, 0.1); /* #000000 with 10% opacity */
+}
+
+.item-details {
+    display: none;
+    padding: 15px 20px 15px 55px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0px 0 10px 0;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid rgba(60, 129, 224, 0.1);
+}
+
+.item-description, .item-note {
+    margin: 5px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: white;
+}
+
+.item-description {
+    margin-bottom: 8px;
+}
+
+.item-note {
+    font-weight: 500;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.checklist-item.expanded .item-details {
+    display: block;
+}
+
+.checkbox {
+    position: relative;
+    z-index: 2;
+}
+
+.checklist-item::after {
+    content: "▼";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: white;
+    transition: all 0.3s ease;
+    background-color: #3C81E0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checklist-item.expanded::after {
+    content: "▲";
+}
+
+.col-checkbox, .checkbox {
+    width: 30px;
+    flex-shrink: 0;
+}
+
+.col-item, .item-name {
+    flex: 2;
+    padding-right: 10px;
+}
+
+.col-per-person, .item-per-person {
+    flex: 1;
+    text-align: center;
+}
+
+.col-people, .item-people {
+    flex: 1;
+    text-align: center;
+}
+
+.col-days, .item-days {
+    flex: 1;
+    text-align: center;
+}
+
+.col-total, .item-total {
+    flex: 1;
+    text-align: center;
+}
+
+.item-name {
+    font-size: 20px;
+}
+
+.item-per-person, .item-people, .item-days, .item-total {
+    font-size: 18px;
+}
+
+/* 圆形复选框 */
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.checkbox:checked {
+    background-color: white;
+}
+
+.checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: #3C81E0;
+    font-size: 18px;
+    top: 2px;
+    left: 7px;
+    font-weight: bold;
+}
+
+/* 动画效果 */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.detail-page.active .detail-right {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.item-name {
+    font-size: 20px;
+    margin-right: auto;
+}
+
+.item-quantity {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+/* 總進度圓圈 */
+.total-progress-container {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.total-progress-circle svg {
+    transform: rotate(-90deg);
+}
+
+.total-progress-circle-bg {
+    stroke: rgba(60, 129, 224, 0.2);
+}
+
+.total-progress-circle-fill {
+    stroke: #3C81E0;
+    transition: stroke-dashoffset 0.6s ease;
+}
+
+.total-progress-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+    color: #3C81E0;
+}
+
+.total-progress-text {
+    font-size: 16px;
+    color: #3C81E0;
+    font-weight: bold;
+}
+
+.details-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.prepare-button {
+    background-color: #ffffff;
+    color: #3C81E0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+}
+
+.prepare-button:hover {
+    background-color: #2b6fc0;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.item-details {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    margin-top: 5px;
+    border-radius: 0 0 8px 8px;
+    display: none;
+    position: relative;
+}
+
+/* 添加RWD設計 - 手機版 */
+@media screen and (max-width: 600px) {
+    body {
+        overflow-y: auto;
+    }
+    
+    .frame {
+        height: auto;
+        position: static;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* 重置所有區塊的絕對定位，改為流動布局 */
+    .left-section, .center-top, .right-section, .center-content, .bottom-section {
+        position: static;
+        width: 100%;
+        height: auto;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        border: none;
+    }
+    
+    /* 調整順序：居家避難包、01、02、03、04、05 */
+    .center-content {
+        order: 1;
+        padding: 40px 20px;
+        border-bottom: 4px solid #3C81E0;
+    }
+    
+    .left-section {
+        order: 2;
+        border-bottom: 4px solid #3C81E0;
+    }
+    
+    .bottom-section {
+        order: 3;
+        flex-direction: column;
+    }
+    
+    .medical-block {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 4px solid #3C81E0;
+    }
+    
+    .living-block {
+        width: 100%;
+        border-bottom: 4px solid #3C81E0;
+    }
+    
+    .right-section {
+        order: 4;
+        border-bottom: 4px solid #3C81E0;
+    }
+    
+    .center-top {
+        order: 5;
+        border-bottom: 4px solid #3C81E0;
+    }
+    
+    /* 調整區塊內容 */
+    .food-block, .tools-block, .info-block, .medical-block, .living-block {
+        padding: 30px 15px;
+        height: auto;
+        min-height: 200px;
+    }
+    
+    /* 調整圖標大小 */
+    .icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .tools-block .icon, .medical-block .icon, .living-block .icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* 調整文字大小 */
+    .number {
+        font-size: 60px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .category {
+        font-size: 16px;
+    }
+    
+    /* 調整中央內容區樣式 */
+    .center-content h1 {
+        font-size: 32px;
+    }
+    
+    .description {
+        font-size: 14px;
+    }
+    
+    /* 總進度調整 */
+    .total-progress-container {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-top: 20px;
+    }
+    
+    /* 讓01和04區塊在手機版與02, 03, 05相同，改為水平排列 */
+    .food-block, .info-block {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    /* 調整文字內容寬度 */
+    .food-block .text-content,
+    .info-block .text-content {
+        max-width: 50%;
+        margin-bottom: 0;
+    }
+    
+    /* 調整圖標組 */
+    .food-block .icon-group,
+    .info-block .icon-group {
+        align-self: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        flex: 1;
+        justify-content: flex-end;
+    }
+    
+    /* 詳情頁面RWD設計 */
+    .detail-page {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    
+    /* 左側區域調整 */
+    .detail-left {
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        overflow-y: visible;
+    }
+    
+    .detail-header {
+        margin-bottom: 20px;
+    }
+    
+    .detail-number {
+        font-size: 70px;
+    }
+    
+    .detail-title {
+        font-size: 28px;
+    }
+    
+    .detail-description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .detail-description p, 
+    .detail-description li {
+        margin-bottom: 10px;
+    }
+    
+    /* 設置按鈕區域調整為水平排列 */
+    .settings-area {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .settings-button {
+        width: 48%;
+    }
+    
+    /* 右側區域調整 */
+    .detail-right {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        overflow-y: visible;
+    }
+    
+    /* 進度條調整 */
+    .progress-bar {
+        margin-bottom: 15px;
+    }
+    
+    .progress-text, .progress-count {
+        font-size: 16px;
+    }
+    
+    /* 返回按鈕調整 */
+    .back-button {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        z-index: 110;
+        background-color: #3C81E0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .back-button svg {
+        color: white;
+    }
+    
+    /* 清單頁面調整 */
+    .checklist-header {
+        position: static;
+        background-color: transparent;
+        z-index: auto;
+        padding: 10px 0;
+        font-size: 12px;
+    }
+    
+    .col-checkbox, .checkbox {
+        width: 36px; /* 加大觸控區域 */
+    }
+    
+    .col-per-person, .col-people, .col-days, .col-total,
+    .item-per-person, .item-people, .item-days, .item-total {
+        font-size: 12px;
+    }
+    
+    .item-name {
+        font-size: 14px;
+        font-weight: bold;
+        padding-right: 5px;
+        line-height: 1.3;
+    }
+    
+    /* 優化展開/收起按鈕 */
+    .checklist-item::after {
+        width: 36px;
+        height: 36px;
+        right: 10px;
+    }
+    
+    /* 詳情頁內容調整 */
+    .item-details {
+        padding: 15px 10px;
+    }
+    
+    .item-description, .item-note {
+        font-size: 14px;
+    }
+    
+    /* 優化「去準備」按鈕 */
+    .prepare-button {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    
+    /* 增大複選框大小 */
+    .checkbox {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* 確保整個頁面可以滾動 */
+    .detail-page.active {
+        position: fixed;
+        height: 100%;
+        min-height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* 確保左欄不會固定在頂部 */
+    .detail-left {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        overflow-y: visible;
+    }
+    
+    /* 簡化清單標題，針對小屏幕顯示 */
+    .col-per-person {
+        display: none;
+    }
+    
+    .col-people::before {
+        content: '人';
+        display: block;
+    }
+    
+    .col-days::before {
+        content: '天';
+        display: block;
+    }
+    
+    .col-total::before {
+        content: '數量';
+        display: block;
+    }
+    
+    /* 調整清單項內容顯示方式 */
+    .item-per-person {
+        display: none; /* 在小屏幕上不顯示每人所需，節省空間 */
+    }
+    
+    /* 改變項目排列方式 */
+    .checklist-item {
+        display: grid;
+        grid-template-columns: 36px 1fr 60px;
+        gap: 5px;
+        align-items: center;
+        padding: 15px 45px 15px 10px; /* 右側留出展開按鈕的空間 */
+    }
+    
+    /* 調整展開後詳情的樣式 */
+    .details-actions {
+        margin-top: 20px;
+    }
+    
+    /* 確保複選框顯示正確 */
+    .checkbox:checked::after {
+        left: 6px;
+    }
+    
+    /* 修改詳情頁動畫效果 */
+    @keyframes slideInMobile {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+    
+    .detail-page.active .detail-right {
+        animation: none;
+    }
+    
+    /* 調整CHECK LIST項目顯示，優化小屏幕布局 */
+    .checklist-item {
+        padding: 15px 45px 15px 10px; /* 右側留出展開按鈕的空間 */
+    }
+    
+    /* 隱藏人數、天數、每人所需欄位 */
+    .col-per-person, .item-per-person, 
+    .col-people, .item-people,
+    .col-days, .item-days {
+        display: none;
+    }
+    
+    /* 調整項目名稱樣式 */
+    .item-name {
+        font-size: 14px;
+        font-weight: bold;
+        padding-right: 5px;
+        line-height: 1.3;
+    }
+    
+    /* 調整總計欄位樣式 */
+    .item-total {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+/* 平板設備的RWD設計 */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+    /* 詳情頁面調整 - 保持左右布局但調整比例 */
+    .detail-left {
+        width: 40%;
+    }
+    
+    .detail-right {
+        width: 60%;
+    }
+    
+    /* 調整左側內容 */
+    .detail-description {
+        font-size: 14px;
+    }
+    
+    .detail-number {
+        font-size: 80px;
+    }
+    
+    .detail-title {
+        font-size: 28px;
+    }
+    
+    /* 調整返回按鈕 */
+    .back-button {
+        right: 20px;
+        top: 20px;
+    }
+    
+    /* 調整清單項顯示 */
+    .checklist-item {
+        padding: 12px 40px 12px 10px;
+    }
+    
+    .item-name {
+        font-size: 16px;
+    }
+    
+    .item-per-person, .item-people, .item-days, .item-total {
+        font-size: 14px;
+    }
+    
+    /* 調整展開按鈕 */
+    .checklist-item::after {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
+/* 語言選擇器樣式 */
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.language-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.language-button:hover {
+    background: #e0e0e0;
+}
+
+.language-button.active {
+    background: #3C81E0;
+    color: white;
+}
+
+/* 移動端適配 */
+@media (max-width: 600px) {
+    .language-selector {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+        gap: 5px;
+    }
+    
+    .language-button {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+} 

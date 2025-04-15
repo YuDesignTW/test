@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北市避難路線規劃</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Leaflet Routing Machine -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <!-- 自定義 CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5"></path>
+                <path d="M12 19l-7-7 7-7"></path>
+            </svg>
+            返回主頁
+        </a>
+        <header>
+            <h1>台北市避難路線規劃</h1>
+        </header>
+        
+        <div class="control-panel">
+            <div class="location-inputs">
+                <div class="input-group">
+                    <label for="start">起點位置</label>
+                    <input type="text" id="start" placeholder="點選地圖選擇起點">
+                </div>
+                <div class="input-group">
+                    <label for="end">終點位置</label>
+                    <input type="text" id="end" placeholder="點選地圖選擇終點">
+                </div>
+                <div class="transport-mode">
+                    <label>
+                        <input type="radio" name="mode" value="walking" checked> 步行
+                    </label>
+                    <label>
+                        <input type="radio" name="mode" value="driving"> 開車
+                    </label>
+                </div>
+                <div class="action-buttons">
+                    <button id="plan-route">規劃路線</button>
+                    <button id="reset" class="secondary">重置</button>
+                </div>
+            </div>
+            
+            <div class="layer-controls">
+                <h3>圖層控制</h3>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="show-danger">
+                        顯示危險區域
+                    </label>
+                    <label>
+                        <input type="checkbox" id="show-shelters">
+                        顯示避難設施
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="route-info" style="display: none;">
+            <h3>路線資訊</h3>
+            <div id="route-details"></div>
+        </div>
+
+        <div class="legend">
+            <h3>圖例說明</h3>
+            <div class="legend-item">
+                <span class="danger-zone"></span> 危險區域
+            </div>
+            <div class="legend-item">
+                <span class="shelter-point"></span> 避難設施
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Leaflet Routing Machine -->
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <!-- 自定義 JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 
