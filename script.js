@@ -26,11 +26,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // 加載翻譯文件
     async function loadTranslations(lang) {
         try {
+            // 檢查語言目錄是否存在
             const response = await fetch(`locales/${lang}/translations.json`);
             if (!response.ok) {
-                throw new Error(`無法加載${lang}翻譯文件`);
+                throw new Error(`無法加載${lang}翻譯文件: ${response.status} ${response.statusText}`);
             }
-            translations = await response.json();
+            
+            // 檢查響應內容類型
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error(`翻譯文件格式錯誤: 預期JSON但收到${contentType}`);
+            }
+            
+            // 解析JSON
+            const text = await response.text();
+            if (!text) {
+                throw new Error('翻譯文件為空');
+            }
+            
+            try {
+                translations = JSON.parse(text);
+            } catch (e) {
+                throw new Error(`JSON解析錯誤: ${e.message}`);
+            }
+            
+            // 應用翻譯
             applyTranslations();
             localStorage.setItem('language', lang);
             globalSettings.language = lang;
@@ -39,6 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
             updateLanguageSelector();
         } catch (error) {
             console.error(`加載翻譯失敗: ${error.message}`);
+            // 如果加載失敗，嘗試使用默認語言
+            if (lang !== 'zh-TW') {
+                console.log('嘗試加載默認語言(zh-TW)...');
+                await loadTranslations('zh-TW');
+            }
         }
     }
     
@@ -61,6 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // 更新設置按鈕
+        document.querySelectorAll('.people-setting span:first-child').forEach(span => {
+            span.textContent = translations.common.people;
+        });
+        
+        document.querySelectorAll('.days-setting span:first-child').forEach(span => {
+            span.textContent = translations.common.days;
+        });
+        
         document.querySelectorAll('.people-setting span:last-child').forEach(span => {
             span.textContent = `${globalSettings.people}${translations.common.people}`;
         });
@@ -133,6 +166,43 @@ document.addEventListener('DOMContentLoaded', function() {
         const betaTag = document.querySelector('.beta-tag');
         if (betaTag) {
             betaTag.textContent = translations.common.beta;
+        }
+        
+        // 更新主頁面標題
+        document.querySelectorAll('.title').forEach(title => {
+            const block = title.closest('[data-category]');
+            if (block) {
+                const category = block.getAttribute('data-category');
+                const categoryKey = getCategoryKeyByNumber(category);
+                if (categoryKey && translations.categories[categoryKey]) {
+                    title.textContent = translations.categories[categoryKey];
+                }
+            }
+        });
+        
+        // 更新中央內容區
+        const centerContent = document.querySelector('.center-content');
+        if (centerContent) {
+            const h1 = centerContent.querySelector('h1');
+            if (h1) h1.textContent = translations.common.home_kit || '居家避難包';
+            
+            const description = centerContent.querySelector('.description');
+            if (description) description.textContent = translations.common.home_kit_description || '目標是在家中自給自足維持基本安全與生存，通常以7~14天長期為主';
+            
+            const totalProgressText = centerContent.querySelector('.total-progress-text');
+            if (totalProgressText) totalProgressText.textContent = translations.common.total_progress || '總進度';
+        }
+    }
+    
+    // 根據類別編號獲取類別鍵
+    function getCategoryKeyByNumber(number) {
+        switch(number) {
+            case '01': return 'food';
+            case '02': return 'medical';
+            case '03': return 'living';
+            case '04': return 'info';
+            case '05': return 'tools';
+            default: return null;
         }
     }
     
